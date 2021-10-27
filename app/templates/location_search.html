@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <title>모임장소 유의사항 알아보기 </title>
+    <link rel="stylesheet" href="../static/css/bootstrap.css">
+    <style>
+        body {
+            text-align: center;
+            text-justify: center;
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" onClick="location.href='/'">코로나 정보 알리미</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="text-muted"><a class="nav-item nav-link" onClick="location.href='corona_moim'">모임가능인원 계산기</a></span>    
+        </button>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="text-muted"> <a class="nav-item nav-link" onClick="location.href='location_search'">장소별 코로나 관련 유의사항</a></span>
+        </button>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="text-muted"> <a class="nav-item nav-link" href="http://ncov.mohw.go.kr/regSocdisBoardView.do" target="_blank">지역별 거리두기 단계 링크</a></span>                
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <div class="navbar-nav">
+                <a class="nav-item nav-link" onClick="location.href='/'">Home</a>
+                <a class="nav-item nav-link" onClick="location.href='corona_moim'">모임가능인원 계산기</a>
+                <a class="nav-item nav-link active" href="#">장소별 코로나 관련 유의사항<span class="sr-only">(current)</span></a>
+                <a class="nav-item nav-link" href="http://ncov.mohw.go.kr/regSocdisBoardView.do" target="_blank">지역별 거리두기 단계 링크</a>
+            </div>
+        </div>
+    </nav>
+
+
+    <h3>모임장소 종류 별 코로나 유의사항 </h3>
+
+
+    <form method="get">
+
+        <p style="text-align:center">
+            <div class="btn-group btn-group-toggle" data-toggle="buttons">
+                <label class="btn btn-primary">유흥시설<input type="radio" onchange='this.form.submit();' name="location_type" value="유흥시설"></label>
+                <label class="btn btn-primary">독서실<input type="radio" onchange='this.form.submit();' name="location_type" value="독서실"></label>
+                <label class="btn btn-primary">스터디카페<input type="radio" onchange='this.form.submit();' name="location_type" value="스터디카페"></label>
+                <label class="btn btn-primary">식당<input type="radio" onchange='this.form.submit();' name="location_type" value="식당"></label>
+                <label class="btn btn-primary">카페<input type="radio" onchange='this.form.submit();' name="location_type" value="카페"></label>
+                <label class="btn btn-primary">놀이공원<input type="radio" onchange='this.form.submit();' name="location_type" value="놀이공원"></label>
+                <label class="btn btn-primary">워터파크<input type="radio" onchange='this.form.submit();' name="location_type" value="워터파크"></label><br>
+                <label class="btn btn-primary">PC방<input type="radio" onchange='this.form.submit();' name="location_type" value="PC방"></label>
+                <label class="btn btn-primary">상점<input type="radio" onchange='this.form.submit();' name="location_type" value="상점"></label>
+                <label class="btn btn-primary">마트<input type="radio" onchange='this.form.submit();' name="location_type" value="마트"></label>
+                <label class="btn btn-primary">백화점<input type="radio" onchange='this.form.submit();' name="location_type" value="백화점"></label>
+                <label class="btn btn-primary">목욕장업<input type="radio" onchange='this.form.submit();' name="location_type" value="목욕장업"></label>
+                <label class="btn btn-primary">노래(코인) 연습장<input type="radio" onchange='this.form.submit();' name="location_type" value="노래(코인) 연습장"></label>
+                <label class="btn btn-primary">탁구<input type="radio" onchange='this.form.submit();' name="location_type" value="탁구"></label><br>
+                <label class="btn btn-primary">배드민턴<input type="radio" onchange='this.form.submit();' name="location_type" value="배드민턴"></label>
+                <label class="btn btn-primary">실내풋살<input type="radio" onchange='this.form.submit();' name="location_type" value="실내풋살"></label>
+                <label class="btn btn-primary">체육도장<input type="radio" onchange='this.form.submit();' name="location_type" value="체육도장"></label>
+                <label class="btn btn-primary">피트니스<input type="radio" onchange='this.form.submit();' name="location_type" value="피트니스"></label>
+                <label class="btn btn-primary">수영<input type="radio" onchange='this.form.submit();' name="location_type" value="수영"></label><br>
+            </div>
+        </p>
+        <p style="text-align:center">
+
+        </p>
+    </form>
+    <ul>
+        {{ notice }}<br>
+    </ul>
+
+
+
+    <ul>
+        {% extends 'kakao.html'%}
+        {% block content %}
+
+        {% endblock %}
+    </ul>
+
+    <script src="../static/js/bootstrap.js"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+</body>
+
+</html>
